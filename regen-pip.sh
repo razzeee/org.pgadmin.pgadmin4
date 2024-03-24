@@ -1,4 +1,4 @@
-wget https://raw.githubusercontent.com/pgadmin-org/pgadmin4/REL-8_2/requirements.txt
+wget https://raw.githubusercontent.com/pgadmin-org/pgadmin4/REL-8_4/requirements.txt
 
 # https://github.com/flatpak/flatpak-builder-tools/issues/365
 cat requirements.txt | grep -v "<= '3.7'" | grep -v "<= '3.10'" | grep -v sys_platform==\"win32\" > requirements_filtered.txt
