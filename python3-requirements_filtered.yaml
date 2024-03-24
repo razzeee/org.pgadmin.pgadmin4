@@ -1,4 +1,4 @@
-# Generated with flatpak-pip-generator --yaml -r requirements_filtered.txt --ignore-pkg bcrypt==4.0.* cryptography==41.0.*
+# Generated with flatpak-pip-generator --yaml -r requirements_filtered.txt --ignore-pkg bcrypt==4.0.* cryptography==42.0.*
 build-commands: []
 buildsystem: simple
 modules:
@@ -242,7 +242,7 @@ modules:
       - *id002
       - *id003
       - *id004
-      - &id020
+      - &id017
         type: file
         url: https://files.pythonhosted.org/packages/87/a1/8c5287991ddb8d3e4662f71356d9656d91ab3a36618c3dd11b280df0d255/dnspython-2.6.1-py3-none-any.whl
         sha256: 5ef3b9680161f6fa89daf8ad451b5f1a33b18ae8a1c6778cdf4b43f08c0a6e50
@@ -380,24 +380,6 @@ modules:
       - *id008
       - *id010
       - *id011
-  - name: python3-cryptography
-    buildsystem: simple
-    build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "cryptography==42.0.*" --no-build-isolation
-    sources:
-      - &id017
-        type: file
-        url: https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz
-        sha256: bcb3ef43e58665bbda2fb198698fcae6776483e0c4a631aa5647806c25e02cc0
-      - &id018
-        type: file
-        url: https://files.pythonhosted.org/packages/13/9e/a55763a32d340d7b06d045753c186b690e7d88780cafce5f88cb931536be/cryptography-42.0.5.tar.gz
-        sha256: 6fe07eec95dfd477eb9530aef5bead34fec819b3aaf6c5bd6d20565da607bfe1
-      - &id019
-        type: file
-        url: https://files.pythonhosted.org/packages/62/d5/5f610ebe421e85889f2e55e33b7f9a6795bd982198517d912eb1c76e1a53/pycparser-2.21-py2.py3-none-any.whl
-        sha256: 8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9
   - name: python3-sshtunnel
     buildsystem: simple
     build-commands:
@@ -410,12 +392,21 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/72/07/6a6f2047a9dc9d012b7b977e4041d37d078b76b44b7ee4daf331c1e6fb35/bcrypt-4.1.2.tar.gz
         sha256: 33313a1200a3ae90b75587ceac502b048b840fc69e7f7a0905b5f87fac7a1258
-      - *id017
-      - *id018
+      - &id018
+        type: file
+        url: https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz
+        sha256: bcb3ef43e58665bbda2fb198698fcae6776483e0c4a631aa5647806c25e02cc0
+      - &id019
+        type: file
+        url: https://files.pythonhosted.org/packages/13/9e/a55763a32d340d7b06d045753c186b690e7d88780cafce5f88cb931536be/cryptography-42.0.5.tar.gz
+        sha256: 6fe07eec95dfd477eb9530aef5bead34fec819b3aaf6c5bd6d20565da607bfe1
       - type: file
         url: https://files.pythonhosted.org/packages/ad/50/8792484502c8141c20c996b802fefa8435a9c018a2bb440a06b172782118/paramiko-3.4.0-py3-none-any.whl
         sha256: 43f0b51115a896f9c00f59618023484cb3a14b98bbceab43394a39c6739b7ee7
-      - *id019
+      - &id020
+        type: file
+        url: https://files.pythonhosted.org/packages/62/d5/5f610ebe421e85889f2e55e33b7f9a6795bd982198517d912eb1c76e1a53/pycparser-2.21-py2.py3-none-any.whl
+        sha256: 8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9
       - type: file
         url: https://files.pythonhosted.org/packages/58/13/8476c4328dcadfe26f8bd7f3a1a03bf9ddb890a7e7b692f54a179bc525bf/sshtunnel-0.4.0-py2.py3-none-any.whl
         sha256: 98e54c26f726ab8bd42b47a3a21fca5c3e60f58956f0f70de2fb8ab0046d0606
@@ -450,7 +441,7 @@ modules:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "eventlet==0.34.2" --no-build-isolation
     sources:
-      - *id020
+      - *id017
       - type: file
         url: https://files.pythonhosted.org/packages/e3/d0/34189a8ab02fc0bdcd1c344b9f12102e679ca5a2e973f0630ec37089a7e4/eventlet-0.34.2-py3-none-any.whl
         sha256: eca0114398d3133f94d16590d205bbb010668a3bc7453fddadb51d63e8c1bac2
@@ -485,9 +476,9 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/81/6e/f4522542322c7f53783da5f65464a7dee137c687111624d2ac733e2a1b98/Authlib-1.2.1-py2.py3-none-any.whl
         sha256: c88984ea00149a90e3537c964327da930779afa4564e354edfd98410bea01911
-      - *id017
       - *id018
       - *id019
+      - *id020
   - name: python3-pyotp
     buildsystem: simple
     build-commands:
@@ -647,9 +638,9 @@ modules:
         url: https://files.pythonhosted.org/packages/30/10/5dbf755b368d10a28d55b06ac1f12512a13e88874a23db82defdea9a8cd9/azure_identity-1.15.0-py3-none-any.whl
         sha256: a14b1f01c7036f11f148f22cd8c16e05035293d714458d6b44ddf534d93eb912
       - *id027
-      - *id017
-      - *id028
       - *id018
+      - *id028
+      - *id019
       - *id023
       - type: file
         url: https://files.pythonhosted.org/packages/40/41/646c00154efa437bf01b30444421285fb29ef624e86b2446e71eff50b7a9/msal-1.28.0-py3-none-any.whl
@@ -663,7 +654,7 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/17/9e/87671efcca80ba6203811540ed1f9c0462c1609d2281d7b7f53cef05da3d/portalocker-2.8.2-py3-none-any.whl
         sha256: cfb86acc09b9aa7c3b43594e19be1345b9d16af3feb08bf92f23d4dce513a28e
-      - *id019
+      - *id020
       - *id030
       - *id011
       - *id022
@@ -752,8 +743,8 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/54/24/b4293291fa1dd830f353d2cb163295742fa87f179fcc8a20a306a81978b7/SecretStorage-3.3.3-py3-none-any.whl
         sha256: f356e6628222568e3af06f2eba8df495efa13b3b63081dafd4f7d9a7b7bc9f99
-      - *id017
       - *id018
+      - *id019
       - type: file
         url: https://files.pythonhosted.org/packages/2d/0a/679461c511447ffaf176567d5c496d1de27cbe34a87df6677d7171b2fbd4/importlib_metadata-7.1.0-py3-none-any.whl
         sha256: 30962b96c0c223483ed6cc7280e7f0199feb01a0e40cfae4d4450fc6fab1f570
@@ -769,7 +760,7 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/50/e2/8e10e465ee3987bb7c9ab69efb91d867d93959095f4807db102d07995d94/more_itertools-10.2.0-py3-none-any.whl
         sha256: 686b06abe565edfab151cb8fd385a05651e1fdf8f0a14191e4439283421f8684
-      - *id019
+      - *id020
       - type: file
         url: https://files.pythonhosted.org/packages/c2/0a/ba9d0ee9536d3ef73a3448e931776e658b36f128d344e175bc32b092a8bf/zipp-3.18.1-py3-none-any.whl
         sha256: 206f5a15f2af3dbaee80769fb7dc6f249695e940acca08dfb2a4769fe61e538b
