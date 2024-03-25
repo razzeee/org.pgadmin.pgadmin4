@@ -83,11 +83,11 @@ modules:
     only-arches:
       - x86_64
     build-commands:
-      - pip3 install --prefix=/app cryptography-41.0.7-cp37-abi3-manylinux_2_28_x86_64.whl
+      - pip3 install --prefix=/app cryptography-42.0.5-cp37-abi3-manylinux_2_28_x86_64.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/62/bd/69628ab50368b1beb900eb1de5c46f8137169b75b2458affe95f2f470501/cryptography-41.0.7-cp37-abi3-manylinux_2_28_x86_64.whl
-        sha256: 43f2552a2378b44869fe8827aa19e69512e3245a219104438692385b0ee119d1
+        url: https://files.pythonhosted.org/packages/64/f7/d3c83c79947cc6807e6acd3b2d9a1cbd312042777bc7eec50c869913df79/cryptography-42.0.5-cp37-abi3-manylinux_2_28_x86_64.whl
+        sha256: f8837fe1d6ac4a8052a9a8ddab256bc006242696f03368a4009be7ee3075cdb7
 
   - python3-requirements_filtered.yaml
 
@@ -98,12 +98,12 @@ modules:
       - tar -xf data.tar.zst
       - rm -rf usr/pgadmin4/venv
       - cp -r usr/* /app/
-      - sed -i "265 i DATA_DIR = os.environ['XDG_CONFIG_HOME']" /app/pgadmin4/web/config.py
+      - sed -i "233 i DATA_DIR = os.environ['XDG_CONFIG_HOME']" /app/pgadmin4/web/config.py
     sources:
       - type: file
-        url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy/dists/pgadmin4/main/binary-amd64/pgadmin4-server_8.2_amd64.deb
+        url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy/dists/pgadmin4/main/binary-amd64/pgadmin4-server_8.4_amd64.deb
         dest-filename: pgadmin-server.deb
-        sha256: 6c9d822fca67399aaeb0d03f962b56cb7a55c79e5d5f69a943cffc893fd625e0
+        sha256: 8dd100abe0c8844e7bdb1c9b32259d1ce7f6342cd6c264d81b9f8910fd43d51e
 
   - name: pgadmin
     buildsystem: simple
@@ -120,9 +120,9 @@ modules:
       - install -Dm644 org.pgadmin.pgadmin4.metainfo.xml /app/share/metainfo/org.pgadmin.pgadmin4.metainfo.xml
     sources:
       - type: file
-        url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy/dists/pgadmin4/main/binary-amd64/pgadmin4-desktop_8.2_amd64.deb
+        url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy/dists/pgadmin4/main/binary-amd64/pgadmin4-desktop_8.4_amd64.deb
         dest-filename: pgadmin-desktop.deb
-        sha256: 046b6be5de924e2c57e70fadab23b8c58d4bc2a0072d6622e0dfe9bf2354b5cf
+        sha256: 2ba361406500d71bef9ef22c938aff569c436fa23c965225347809aa57beb064
 
       - type: script
         commands:
