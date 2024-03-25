@@ -8,12 +8,12 @@ jobs:
     name: "Flatpak"
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-23.08
       options: --privileged
     steps:
-    - uses: actions/checkout@v4
-    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
-      with:
-        bundle: pgadmin4.flatpak
-        manifest-path: org.pgadmin.pgadmin4.yml
-        cache-key: flatpak-builder-${{ github.sha }}
+      - uses: actions/checkout@v4
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: pgadmin4.flatpak
+          manifest-path: org.pgadmin.pgadmin4.yml
+          cache-key: flatpak-builder-${{ github.sha }}
