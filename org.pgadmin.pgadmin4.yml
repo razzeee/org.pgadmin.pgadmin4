@@ -100,12 +100,14 @@ modules:
       - tar -xf data.tar.zst
       - rm -rf usr/pgadmin4/venv
       - cp -r usr/* /app/
-      - sed -i "233 i DATA_DIR = os.environ['XDG_CONFIG_HOME']" /app/pgadmin4/web/config.py
+      - cat config_distro.py usr/pgadmin4/web/config_distro.py > ${FLATPAK_DEST}/pgadmin4/web/config_distro.py
     sources:
       - type: file
         url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy/dists/pgadmin4/main/binary-amd64/pgadmin4-server_8.4_amd64.deb
         dest-filename: pgadmin-server.deb
         sha256: 8dd100abe0c8844e7bdb1c9b32259d1ce7f6342cd6c264d81b9f8910fd43d51e
+      - type: file
+        path: config_distro.py
 
   - name: pgadmin
     buildsystem: simple
