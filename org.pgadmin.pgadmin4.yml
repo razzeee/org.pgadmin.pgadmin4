@@ -99,8 +99,9 @@ modules:
       - ar x pgadmin-server.deb
       - tar -xf data.tar.zst
       - rm -rf usr/pgadmin4/venv
-      - cp -r usr/* /app/
-      - cat config_distro.py usr/pgadmin4/web/config_distro.py > ${FLATPAK_DEST}/pgadmin4/web/config_distro.py
+      - cp -r usr/* ${FLATPAK_DEST}/
+      - mv ${FLATPAK_DEST}/pgadmin4 ${FLATPAK_DEST}/pgAdmin4
+      - cat config_distro.py usr/pgadmin4/web/config_distro.py > ${FLATPAK_DEST}/pgAdmin4/web/config_distro.py
     sources:
       - type: file
         url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy/dists/pgadmin4/main/binary-amd64/pgadmin4-server_8.11_amd64.deb
@@ -114,12 +115,14 @@ modules:
     build-commands:
       - ar x pgadmin-desktop.deb
       - tar -xf data.tar.zst
-      - cp -r usr/* /app/
+      - cp -r usr/* ${FLATPAK_DEST}/
+      - mv ${FLATPAK_DEST}/pgadmin4/* ${FLATPAK_DEST}/pgAdmin4
+      - rm -rf ${FLATPAK_DEST}/pgadmin4
 
       - desktop-file-edit --set-key="Exec" --set-value="run.sh" ${FLATPAK_DEST}/share/applications/pgadmin4.desktop
 
-      - install -Dm755 run.sh /app/bin/run.sh
-      - install -Dm644 org.pgadmin.pgadmin4.metainfo.xml /app/share/metainfo/org.pgadmin.pgadmin4.metainfo.xml
+      - install -Dm755 run.sh ${FLATPAK_DEST}/bin/run.sh
+      - install -Dm644 org.pgadmin.pgadmin4.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.pgadmin.pgadmin4.metainfo.xml
     sources:
       - type: file
         url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy/dists/pgadmin4/main/binary-amd64/pgadmin4-desktop_8.11_amd64.deb
@@ -128,7 +131,7 @@ modules:
 
       - type: script
         commands:
-          - zypak-wrapper /app/pgadmin4/bin/pgadmin4
+          - zypak-wrapper /app/pgAdmin4/bin/pgadmin4
         dest-filename: run.sh
 
       - type: file
