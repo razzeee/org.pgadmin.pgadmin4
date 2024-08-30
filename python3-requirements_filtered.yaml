@@ -1,4 +1,4 @@
-# Generated with flatpak-pip-generator --yaml -r requirements_filtered.txt --ignore-pkg bcrypt==4.1.* cryptography==42.0.*
+# Generated with flatpak-pip-generator --yaml -r requirements_filtered.txt --ignore-pkg bcrypt==4.2.* cryptography==43.0.*
 build-commands: []
 buildsystem: simple
 modules:
@@ -216,15 +216,12 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "Flask-Security-Too==5.4.*" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "Flask-Security-Too==5.5.*" --no-build-isolation
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/14/c7/2531aca6ab7baa3774fde2dfc9c9dd6d5a42576a1013a93701bfdc402fdd/Flask-Principal-0.4.0.tar.gz
         sha256: f5d6134b5caebfdbb86f32d56d18ee44b080876a27269560a96ea35f75c99453
       - *id012
-      - type: file
-        url: https://files.pythonhosted.org/packages/4f/15/344d73b45758b84614fdccbc95501c06068cbb1139da8042d76a3d67d346/Flask_Security_Too-5.4.3-py3-none-any.whl
-        sha256: 655bf7bd15bf78593d39b1db125d4e8255ae220ed008c6cb35f7466749e0d3af
       - *id001
       - *id002
       - *id003
@@ -236,6 +233,9 @@ modules:
         url: https://files.pythonhosted.org/packages/d7/ee/bf0adb559ad3c786f12bcbc9296b3f5675f529199bef03e2df281fa1fadb/email_validator-2.2.0-py3-none-any.whl
         sha256: 561977c2d73ce3611850a06fa56b414621e0c8faa9d66f2611407d87465da631
       - *id004
+      - type: file
+        url: https://files.pythonhosted.org/packages/3e/2e/dad90f29b168602dd610c1b8568a1059ede59b4468aa8baf92fff0151e74/flask_security_too-5.5.2-py3-none-any.whl
+        sha256: 393fb9b5c03ebc14f8c3500af4691c881ba34599a74ccbc8a2b2dc4f51071585
       - *id013
       - &id023
         type: file
@@ -532,8 +532,8 @@ modules:
         sha256: 8eac17d1341a91d7ed914435941ba917b5ef1568acabc3e65653603966a7cc88
       - &id027
         type: file
-        url: https://files.pythonhosted.org/packages/1c/d5/c84e1a17bf61d4df64ca866a1c9a913874b4e9bdc131ec689a0ad013fb36/certifi-2024.7.4-py3-none-any.whl
-        sha256: c198e21b1289c2ab85ee4e67bb4b4ef3ead0892059901a8d5b622f24a1101e90
+        url: https://files.pythonhosted.org/packages/12/90/3c9ff0512038035f59d279fddeb79f5f1eccd8859f06d6163c58798b9487/certifi-2024.8.30-py3-none-any.whl
+        sha256: 922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8
       - &id028
         type: file
         url: https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz
@@ -692,15 +692,15 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "google-auth-oauthlib==1.2.0" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "google-auth-oauthlib==1.2.1" --no-build-isolation
     sources:
       - *id035
       - *id027
       - *id028
       - *id036
       - type: file
-        url: https://files.pythonhosted.org/packages/71/bf/9e125754d1adb3bc4bd206c4e5df756513b1d23675ac06caa471278d1f3f/google_auth_oauthlib-1.2.0-py2.py3-none-any.whl
-        sha256: 297c1ce4cb13a99b5834c74a1fe03252e1e499716718b190f56bcb9c4abc4faf
+        url: https://files.pythonhosted.org/packages/1a/8e/22a28dfbd218033e4eeaf3a0533b2b54852b6530da0c0fe934f0cc494b29/google_auth_oauthlib-1.2.1-py2.py3-none-any.whl
+        sha256: 2d58a27262d55aa1b87678c3ba7142a080098cbc2024f903c62355deb235d91f
       - *id023
       - *id032
       - *id034
@@ -713,7 +713,7 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "keyring==24.*" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "keyring==25.*" --no-build-isolation
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/54/24/b4293291fa1dd830f353d2cb163295742fa87f179fcc8a20a306a81978b7/SecretStorage-3.3.3-py3-none-any.whl
@@ -724,11 +724,17 @@ modules:
         url: https://files.pythonhosted.org/packages/7f/66/b15ce62552d84bbfcec9a4873ab79d993a1dd4edb922cbfccae192bd5b5f/jaraco.classes-3.4.0-py3-none-any.whl
         sha256: f662826b6bed8cace05e7ff873ce0f9283b5c924470fe664fff1c2f00f581790
       - type: file
+        url: https://files.pythonhosted.org/packages/ff/db/0c52c4cf5e4bd9f5d7135ec7669a3a767af21b3a308e1ed3674881e52b62/jaraco.context-6.0.1-py3-none-any.whl
+        sha256: f797fc481b490edb305122c9181830a3a5b76d84ef6d1aef2fb9b47ab956f9e4
+      - type: file
+        url: https://files.pythonhosted.org/packages/b1/54/7623e24ffc63730c3a619101361b08860c6b7c7cfc1aef6edb66d80ed708/jaraco.functools-4.0.2-py3-none-any.whl
+        sha256: c9d16a3ed4ccb5a889ad8e0b7a343401ee5b2a71cee6ed192d3f68bc351e94e3
+      - type: file
         url: https://files.pythonhosted.org/packages/ae/72/2a1e2290f1ab1e06f71f3d0f1646c9e4634e70e1d37491535e19266e8dc9/jeepney-0.8.0-py3-none-any.whl
         sha256: c0a454ad016ca575060802ee4d590dd912e35c122fa04e70306de3d076cce755
       - type: file
-        url: https://files.pythonhosted.org/packages/7c/23/d557507915181687e4a613e1c8a01583fd6d7cb7590e1f039e357fe3b304/keyring-24.3.1-py3-none-any.whl
-        sha256: df38a4d7419a6a60fea5cef1e45a948a3e8430dd12ad88b0f423c5c143906218
+        url: https://files.pythonhosted.org/packages/63/42/ea8c9726e5ee5ff0731978aaf7cd5fa16674cf549c46279b279d7167c2b4/keyring-25.3.0-py3-none-any.whl
+        sha256: 8d963da00ccdf06e356acd9bf3b743208878751032d8599c6cc89eb51310ffae
       - type: file
         url: https://files.pythonhosted.org/packages/d8/0b/6a51175e1395774449fca317fb8861379b7a2d59be411b8cce3d19d6ce78/more_itertools-10.4.0-py3-none-any.whl
         sha256: 0f7d9f83a0a8dcfa8a2694a770590d98a67ea943e3d9f5298309a484758c4e27
